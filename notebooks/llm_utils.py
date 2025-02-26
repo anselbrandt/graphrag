@@ -21,5 +21,5 @@ def ask_llm(context, model, tokens):
         ],
     }
     response = client.chat.completions.create(**data)
-    chat_response = response.choices[0].message.content
+    chat_response = response.choices[0].message.content.replace("\n\n", "\n")
     return chat_response

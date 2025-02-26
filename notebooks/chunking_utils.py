@@ -1,3 +1,5 @@
+from typing import List
+
 import tiktoken
 from chonkie import SDPMChunker
 
@@ -16,3 +18,9 @@ chunker: SDPMChunker = SDPMChunker(
     skip_window=1,
     delim="\n",
 )
+
+
+def get_chunks(text: str) -> List[str]:
+    chunks = chunker(text)
+    text_chunks = [chunk.text for chunk in chunks]
+    return text_chunks
