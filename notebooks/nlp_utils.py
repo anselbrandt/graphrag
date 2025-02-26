@@ -87,7 +87,7 @@ def get_entities(chunks: List[str], model):
                         "indexes": set([i - 1, i, i + 1]),
                     }
     entities = {
-        sorted(list(values["keys"]))[0]: {
+        sorted(list(values["keys"]))[0].replace("\n", " "): {
             "labels": sorted(list(values["labels"])),
             "indexes": sorted([i for i in values["indexes"] if 0 <= i < len(chunks)]),
         }
